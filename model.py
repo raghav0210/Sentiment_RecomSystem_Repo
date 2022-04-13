@@ -47,7 +47,7 @@ def predict(username):
         product_pivot.sort_values(by='predicted_sentiment_score',inplace= True, ascending= False)
         
         # Get top 5 products
-        list_data = [[index, out] for index, out in enumerate (product_pivot.head(5).index, 1)]
+        list_data = [[out,product_pivot.iloc[index,0]] for index, out in enumerate (product_pivot.head(5).index, 1)]
         text_info = "Top 5 Recommended products for \"" + username +  "\""
 
     return text_info, list_data
